@@ -23,22 +23,6 @@ export class ReactiveFormComponent {
 
   //nombre
 
-
-//   <div class="mb-3">
-//   <label class="form-label">Nombre</label>
-//   <input formControlName="nombre" type="nombre" class="form-control"
-//   [ngClass]="{ 'is-invalid': nombreControlIsInvalid }" aria-describedby="nombreHelp">
-//   <div class="invalid-feedback"> <ng-container *ngIf="nombreControl.errors?.['required']">Ingrese un nombre</ng-container>
-//   </div>     
-// </div>
-
-  // get nombreControl() {
-  //   return this.userForm.controls['nombre'];
-  // }
-
-  // get nombreControlIsInvalid() {
-  //   return this.nombreControl.touched;
-  // }
   get nombreControlIsInvalid() {
     return this.userForm.controls['nombre'].invalid && this.userForm.controls['nombre'].touched;
   }
@@ -59,10 +43,6 @@ export class ReactiveFormComponent {
   get passwordControl() {
     return this.userForm.controls['password'];
   }
-
-  // get passwordControlIsInvalid() {
-  //   return this.passwordControl.touched;
-  // }
 
   onSubmit(): void {
     if (this.userForm.invalid){
