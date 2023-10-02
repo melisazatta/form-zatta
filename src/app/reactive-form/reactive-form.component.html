@@ -1,0 +1,35 @@
+<div class="m-5">
+  <h1 class="m-5">
+    Registrarse
+  </h1>
+
+
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+     
+  <div class="mb-3">
+    <label class="form-label">Nombre</label>
+    <input formControlName="nombre" type="text" class="form-control"
+           [ngClass]="{ 'is-invalid': nombreControlIsInvalid }" aria-describedby="nombreHelp">
+    <div class="invalid-feedback" *ngIf="nombreControlIsInvalid">El nombre debe tener al menos 2 caracteres</div>
+  </div>
+
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input formControlName="email" type="email" class="form-control"
+      [ngClass]="{ 'is-invalid': emailControlIsInvalid }" aria-describedby="emailHelp">
+      <div class="invalid-feedback"> <ng-container *ngIf="emailControl.errors?.['required']">Ingrese un email</ng-container>
+      <ng-container *ngIf="emailControl.errors?.['email']">Email invalido</ng-container>
+      </div>     
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
+      <div class="invalid-feedback"> <ng-container *ngIf="passwordControl.errors?.['required']">Ingrese su contraseña</ng-container>
+        </div>     
+    </div>
+
+    <button [disabled]="userForm.invalid" type="submit" class="btn btn-primary">Enviar</button>
+
+  </form>
+    
+</div>
